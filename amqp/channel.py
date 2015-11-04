@@ -2198,7 +2198,7 @@ class Channel(AbstractChannel):
         """
         args = AMQPWriter()
         args.write_long(prefetch_size)
-        args.write_short(prefetch_count)
+        args.write_long(prefetch_count)
         args.write_bit(a_global)
         self._send_method((60, 10), args)
         return self.wait(allowed_methods=[
